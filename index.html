@@ -1,3 +1,16 @@
+<!--
+Project Title: Pizza Builder
+List of Opportunities: 
+-Users can choose size (small, medium large)
+-Users can choose crust type (thin, stuffed, gluten free)
+-Users can choose sauce type (tomato, alfredo, pesto)
+-Users can choose cheese type (Mozzarella, Cheddar, Vegan)
+-Users can choose toppings (Pepperonni, Mushrooms, Onions, Olives, Bell Peppers, Pineapples)
+Function Opportunities:
+-Calculation of final price per order
+-Calculation of caloric intake based off of users choices
+-Display of a preview of the users final order -->
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,7 +20,64 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <h1>Your html goes here...</h1>
+    <h1>Pizza Builder</h1>
+    <p>Customize Your Perfect Pizza Below</p>
+    <main class = "container">
+        <section class = "panel">
+            <h2>Create Your Pizza
+        <div class = "box">
+            <h3>Size</h3>
+            <button>Small</button>
+            <button>Medium</button>
+            <button>Large</button>
+        </div>
+        <div class = "box">
+        <h3>Crust</h3>
+        <button>Thin</button>
+        <button>Stuffed</button>
+        <button>Gluten Free</button>
+        </div>
+
+        <div class = "box">
+            <h3>Sauce</h3>
+            <button>Tomato</button>
+            <button>Alfredo</button>
+            <button>Pesto</button>
+        </div>
+        <div class = "box">
+            <h3>Cheese</h3>
+            <button>Mozzarella</button>
+            <button>Cheddar</button>
+            <button>Vegan</button>
+        </div>
+        <div class = "box">
+            <h3>Toppings</h3>
+            <button>Pepperoni</button>
+            <button>Mushrooms</button>
+            <button>Onions</button>
+            <button>Olives</button>
+            <button>Bell Peppers</button>
+            <button>Pineapple</button>
+        </div>
+        </section>
+        <section class = "panel">
+            <h2>Pizza Preview</h2>
+            <div id="pizza-preview">
+                <!-- Dynamic pizza preview will be rendered here -->
+            </div>
+        </section>
+        <div class = "box">
+            <h3>Price</h3>
+            <p id="price-display">$0.00</p>
+        </div>
+        <div class = "box">
+            <h3>Calories</h3>
+            <p id="calories-display">0</p>
+        </div>
+        <button>Complete Order</button>
+    </main>
+
+
     <br>See the <a href="README.md">README</a> for project details
 </body>
 </html>
