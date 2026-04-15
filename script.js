@@ -1,4 +1,5 @@
 // add javascript here
+//cost for each part of the pizza
 const sizePrices = { 
     small: 5,
     medium: 10,
@@ -19,7 +20,7 @@ const toppingPrices = {
     "bell-peppers": .5,
     pineapple: 1
 };
-
+//function to calculate and update price
 function calculatePrice(size, crust, toppings) {
     let total = 0;
 
@@ -32,7 +33,7 @@ function calculatePrice(size, crust, toppings) {
 
     return total;
 }
-
+//function to display the updated price
 document.querySelectorAll("input").forEach(input => {
     input.addEventListener("change", updatePizza);
 });
