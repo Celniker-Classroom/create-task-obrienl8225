@@ -24,14 +24,29 @@ const toppingPrices = {
 function calculatePrice(size, crust, toppings) {
     let total = 0;
 
-    total += sizePrices[size];
-    total += crustPrices[crust];
+   if(size) total += sizePrices[size];
+if(crust) total += crustPrices[crust];
 
-    for(let i = 0; i < toppingPrices.length; i++) {
+    for(let i = 0; i < toppings.length; i++) {
         total += toppingPrices[toppings[i]];
     }
 
     return total;
+}
+
+function updatePizza(){
+    const size = document.querySelector('input[name="size"]:checked')?.value;
+    const crust = document.querySelector('input[name="crust"]:checked')?.value;
+
+    const checkedToppings = document.querySelectorAll('input[name="toppings"]:checked');
+    let toppings = [];
+
+    checkedToppings.forEach( t => toppings.push(t.value));
+    const price = calculatePrice(size, crust, toppings);
+
+
+document.getElementById("price-display").innerText = "$" + price.toFixed(2);
+
 }
 //function to display the updated price
 document.querySelectorAll("input").forEach(input => {
