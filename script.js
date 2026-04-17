@@ -54,4 +54,3 @@ function updatePizza() {
 }
 
 document.querySelector("button").addEventListener("click", updatePizza);
-});
