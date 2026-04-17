@@ -53,6 +53,5 @@ function updatePizza() {
     document.getElementById("calories-display").innerText = calories + " kcal";
 }
 
-document.querySelectorAll("input").forEach(input => {
-    input.addEventListener("change", updatePizza);
+document.querySelector("button").addEventListener("click", updatePizza);
 });
