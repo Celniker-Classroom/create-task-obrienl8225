@@ -47,7 +47,8 @@ function updatePizza() {
         chosenToppings.push(t.value);
     });
 
-    document.getElementById("price-display").innerText    = "$" + calculatePrice(size, crust, sauce, cheese, chosenToppings).toFixed(2);
+    document.getElementById("price-display").innerText    = "$" 
+    + calculatePrice(size, crust, sauce, cheese, chosenToppings).toFixed(2);
     document.getElementById("calories-display").innerText = calculateCalories(size, crust, sauce, cheese, chosenToppings) + " kcal";
 }
 document.querySelector("button").addEventListener("click", updatePizza);
