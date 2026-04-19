@@ -24,10 +24,6 @@ function calculatePrice(size, crust, sauce, cheese, chosenToppings) {
         if (topping) total += topping.price;
     });
 
-    if (size === "large" && chosenToppings.length >= 3) {
-        total = total * 0.9;
-    }
-
     return total;
 }
 function calculateCalories(size, crust, sauce, cheese, chosenToppings) {
