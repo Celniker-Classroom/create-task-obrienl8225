@@ -52,3 +52,7 @@ function updatePizza() {
     document.getElementById("calories-display").innerText = calculateCalories(size, crust, sauce, cheese, chosenToppings) + " kcal";
 }
 document.querySelector("button").addEventListener("click", updatePizza);
+ // discount/tax rate for total price
+ let total = 10 + toppings * 1.5;
+total *= toppings > 3 ? 0.9 : 1;
+total *= 1.08;
