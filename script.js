@@ -170,3 +170,17 @@ function editPizza(index) {
 }
 //changed complete order ot update pizza
 document.querySelector("button").addEventListener("click", addPizza);
+//dark mode toggle 
+const darkToggle = document.getElementById('darkToggle');
+
+darkToggle.addEventListener('click', () => {
+    document.body.classList.toggle('dark');
+    const isDark = document.body.classList.contains('dark');
+    darkToggle.textContent = isDark ? 'Light Mode' : 'Dark Mode';
+    localStorage.setItem('darkMode', isDark);
+});
+
+if (localStorage.getItem('darkMode') === 'true') {
+    document.body.classList.add('dark');
+    darkToggle.textContent = 'Light Mode';
+}
