@@ -1,4 +1,4 @@
-const toppings = [
+ const toppings = [
     { value: "pepperoni",    price: 1,   calories: 130 },
     { value: "mushrooms",    price: 0.5, calories: 10  },
     { value: "onions",       price: 0.5, calories: 10  },
@@ -17,12 +17,7 @@ const crustCalories = { thin: 0, stuffed: 150, "gluten-free": 50 };
 const sauceCalories = { tomato: 30, alfredo: 120, pesto: 100 };
 const cheeseCalories= { mozzarella: 80, cheddar: 110, vegan: 60 };
 
-
-// cart allows for multiple pizzas to be added instead of just one
 const cart = [];
-
-
-// price and calorie calculation
 
 function calculatePrice(size, crust, sauce, cheese, chosenToppings) {
     let total =
@@ -54,7 +49,6 @@ function calculateCalories(size, crust, sauce, cheese, chosenToppings) {
     return total;
 }
 
-
 function getCurrentPizza() {
     const size   = document.querySelector('input[name="size"]:checked')?.value;
     const crust  = document.querySelector('input[name="crust"]:checked')?.value;
@@ -68,19 +62,13 @@ function getCurrentPizza() {
     return { size, crust, sauce, cheese, chosenToppings };
 }
 
-
-//allows for additional pizzas to be added which differs from my orginal create task
-
 function addPizza() {
     const pizza = getCurrentPizza();
     cart.push(pizza);
-
     updateOrderSummary();
 }
 
-
-//updates total price and calories in cart
-
+//only shows raw price now
 function updateOrderSummary() {
     let totalPrice = 0;
     let totalCalories = 0;
@@ -103,14 +91,6 @@ function updateOrderSummary() {
         );
     });
 
-    //discount feature for ordering multiple pizzas
-    if (cart.length > 3) {
-        totalPrice *= 0.9;
-    }
-
-    //tax feature 
-    totalPrice *= 1.08;
-
     document.getElementById("price-display").innerText =
         "$" + totalPrice.toFixed(2);
 
@@ -119,7 +99,7 @@ function updateOrderSummary() {
 
     renderCart();
 }
-//cart that replaced complete order in original create task
+
 function renderCart() {
     const container = document.getElementById("cart");
     container.innerHTML = "";
@@ -142,16 +122,11 @@ function renderCart() {
     });
 }
 
-
-//allows for pizza to be removed 
-//used a chatbot to figure out how ot do this
-
 function removePizza(index) {
     cart.splice(index, 1);
     updateOrderSummary();
 }
-//allows for pizza to be editied 
-//figured out how to do this by watching an explanation on youtube and also using a chatbot to fix errors and understand it better 
+
 function editPizza(index) {
     const pizza = cart[index];
 
@@ -165,12 +140,43 @@ function editPizza(index) {
     });
 
     cart.splice(index, 1);
-
     updateOrderSummary();
 }
-//changed complete order ot update pizza
-document.querySelector("button").addEventListener("click", addPizza);
-//dark mode toggle 
+
+//tax and discount only calculated when calculate order button is pressed 
+function completeOrder() {
+    if (cart.length === 0) {
+        alert("Your cart is empty!");
+        return;
+    }
+
+    let subtotal = 0;
+    cart.forEach(pizza => {
+        subtotal += calculatePrice(
+            pizza.size,
+            pizza.crust,
+            pizza.sauce,
+            pizza.cheese,
+            pizza.chosenToppings
+        );
+    });
+
+    let discount = 0;
+    if (cart.length > 3) {
+        discount = subtotal * 0.1;
+    }
+
+    const discounted = subtotal - discount;
+    const tax = discounted * 0.08;
+    const total = discounted + tax;
+
+    document.getElementById("subtotal").innerText = subtotal.toFixed(2);
+    document.getElementById("discount").innerText = discount.toFixed(2);
+    document.getElementById("tax").innerText = tax.toFixed(2);
+    document.getElementById("total").innerText = total.toFixed(2);
+}
+
+// dark mode toggle
 const darkToggle = document.getElementById('darkToggle');
 
 darkToggle.addEventListener('click', () => {
@@ -184,3 +190,6 @@ if (localStorage.getItem('darkMode') === 'true') {
     document.body.classList.add('dark');
     darkToggle.textContent = 'Light Mode';
 }
+
+document.getElementById('add-pizza-btn').addEventListener("click", addPizza);
+document.getElementById('complete-order-btn').addEventListener("click", completeOrder);
