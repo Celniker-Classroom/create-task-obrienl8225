@@ -10,7 +10,6 @@ Function Opportunities:
 -Calculation of final price per order
 -Calculation of caloric intake based off of users choices
 -Display of a preview of the users final order -->
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -19,72 +18,83 @@ Function Opportunities:
     <script src="script.js" defer></script>
     <link rel="stylesheet" href="styles.css">
 </head>
+
 <body>
     <h1>Pizza Builder</h1>
     <p>Customize Your Perfect Pizza Below</p>
-    <main class = "container">
-        <section class = "panel">
-            <h2>Create Your Pizza</h2>
-        <div class = "box">
-            <h3>Size</h3>
-            <input type="radio" name="size" value="small"> Small<br>
-            <input type="radio" name="size" value="medium"> Medium<br>
-            <input type="radio" name="size" value="large"> Large<br>
-        </div>
-        <div class = "box">
-        <h3>Crust</h3>
-        <input type="radio" name="crust" value="thin"> Thin<br>
-        <input type="radio" name="crust" value="stuffed"> Stuffed<br>
-        <input type="radio" name="crust" value="gluten-free"> Gluten Free<br>
-        </div>
 
-        <div class = "box">
-            <h3>Sauce</h3>
-            <input type="radio" name="sauce" value="tomato"> Tomato<br>
-            <input type="radio" name="sauce" value="alfredo"> Alfredo<br>
-            <input type="radio" name="sauce" value="pesto"> Pesto<br>
-        </div>
-        <div class = "box">
-            <h3>Cheese</h3>
-            <input type="radio" name="cheese" value="mozzarella"> Mozzarella<br>
-            <input type="radio" name="cheese" value="cheddar"> Cheddar<br>
-            <input type="radio" name="cheese" value="vegan"> Vegan<br>
-        </div>
-        <div class = "box">
-            <h3>Toppings</h3>
-            <input type= "checkbox" name = "toppings" value="pepperoni"> Pepperoni<br>
-            <input type="checkbox" name="toppings" value="mushrooms"> Mushrooms<br>
-            <input type="checkbox" name="toppings" value="onions"> Onions<br>
-            <input type="checkbox" name="toppings" value="olives"> Olives<br>
-            <input type="checkbox" name="toppings" value="bell-peppers"> Bell Peppers<br>
-            <input type="checkbox" name="toppings" value="pineapple"> Pineapple<br>
-        </div>
+    <main class="container">
+
+        <section class="panel">
+            <h2>Create Your Pizza</h2>
+
+            <div class="box">
+                <h3>Size</h3>
+                <input type="radio" name="size" value="small"> Small<br>
+                <input type="radio" name="size" value="medium"> Medium<br>
+                <input type="radio" name="size" value="large"> Large<br>
+            </div>
+
+            <div class="box">
+                <h3>Crust</h3>
+                <input type="radio" name="crust" value="thin"> Thin<br>
+                <input type="radio" name="crust" value="stuffed"> Stuffed<br>
+                <input type="radio" name="crust" value="gluten-free"> Gluten Free<br>
+            </div>
+
+            <div class="box">
+                <h3>Sauce</h3>
+                <input type="radio" name="sauce" value="tomato"> Tomato<br>
+                <input type="radio" name="sauce" value="alfredo"> Alfredo<br>
+                <input type="radio" name="sauce" value="pesto"> Pesto<br>
+            </div>
+
+            <div class="box">
+                <h3>Cheese</h3>
+                <input type="radio" name="cheese" value="mozzarella"> Mozzarella<br>
+                <input type="radio" name="cheese" value="cheddar"> Cheddar<br>
+                <input type="radio" name="cheese" value="vegan"> Vegan<br>
+            </div>
+
+            <div id="cart"></div>
+
+            <button type="button">Add Pizza</button>
+
+            <div class="box">
+                <h3>Toppings</h3>
+                <input type="checkbox" name="toppings" value="pepperoni"> Pepperoni<br>
+                <input type="checkbox" name="toppings" value="mushrooms"> Mushrooms<br>
+                <input type="checkbox" name="toppings" value="onions"> Onions<br>
+                <input type="checkbox" name="toppings" value="olives"> Olives<br>
+                <input type="checkbox" name="toppings" value="bell-peppers"> Bell Peppers<br>
+                <input type="checkbox" name="toppings" value="pineapple"> Pineapple<br>
+            </div>
+
         </section>
 
         <div class="box" id="summary-box">
-  <h3>Order Summary</h3>
-  
-  <p>Subtotal: $<span id="subtotal">0.00</span></p>
-  <p>Tax (7.5%): $<span id="tax">0.00</span></p>
-  <p>Discount: -$<span id="discount">0.00</span></p>
-  
-  <hr>
-  
-  <p><strong>Total: $<span id="total">0.00</span></strong></p>
-</div>
-    </div>
-        </section>
-        <div class = "box">
+            <h3>Order Summary</h3>
+
+            <p>Subtotal: $<span id="subtotal">0.00</span></p>
+            <p>Tax (7.5%): $<span id="tax">0.00</span></p>
+            <p>Discount: -$<span id="discount">0.00</span></p>
+
+            <hr>
+
+            <p><strong>Total: $<span id="total">0.00</span></strong></p>
+        </div>
+
+        <div class="box">
             <h3>Price</h3>
             <p id="price-display">$0.00</p>
         </div>
-        <div class = "box">
+
+        <div class="box">
             <h3>Calories</h3>
             <p id="calories-display">0</p>
         </div>
-        <button>Complete Order</button>
-    </main>
 
+    </main>
 
     <br>See the <a href="README.md">README</a> for project details
 </body>
